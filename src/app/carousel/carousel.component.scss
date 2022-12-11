@@ -1,0 +1,107 @@
+section {
+    display: flex;
+    gap: 20px;
+    .thumbnails {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        height: fit-content;
+        .up, .down {
+            button {
+                padding: 5px 20px;
+                border-radius: 2rem;
+                border: none;
+            }
+        }
+        .down {
+            transform: rotate(180deg);
+        }
+        #scrollable-portion {
+            height: 160px;
+            overflow-y: auto;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            .image {
+                scroll-snap-align: start;
+                img {
+                    height: 50px;
+                    width: 50px;
+                    object-fit: cover;
+                    transition: all 500ms ease;
+                }
+            }
+        }
+        #expanded {
+            position: absolute;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            right: 0;
+            .close-button {
+                position: absolute;
+                top: 10%;
+                right: 5%;
+                button {
+                    background-color: black;
+                    color: aquamarine;
+                    padding: 5px 10px;
+                    border-radius: 2rem;
+                    border: none;
+                    font-size: 1rem;
+                }
+            }
+            .left, .right {
+                position: absolute;
+                top: 50%;
+                button {
+                    background-color: aquamarine;
+                    padding: 5px 10px;
+                    border-radius: 2rem;
+                    border: none;
+                    font-size: 1rem;
+                }
+            }
+            .left {
+                left: 2%;
+            }
+            .right {
+                right: 2%;
+            }
+            .expanded-image {
+                img {
+                    width: 100vw;
+                    height: 100vh;
+                    object-fit: cover;
+                }
+                height: fit-content;
+            }
+            .dots {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 5%;
+                i {
+                    font-size: 2rem;
+                    &.active {
+                        color: aquamarine;
+                    }
+                }
+            }
+        }
+    }
+    .product {
+        .main-image {
+            img {
+                height: 400px;
+                width: 400px;
+                object-fit: cover;
+                border-radius: 12px;
+                transition: all 500ms;
+            }
+        }
+    }
+}

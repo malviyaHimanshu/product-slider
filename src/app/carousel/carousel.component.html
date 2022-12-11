@@ -1,0 +1,39 @@
+<section>
+    
+    <div class="thumbnails">
+        <div class="up">
+            <button (click)="scrollUp()">^</button>
+        </div>
+        <div id="scrollable-portion">
+            <div class="image" *ngFor="let image of imageArr">
+                <img src="{{ image }}" alt="" (mouseover)="handleMouseOver(image)">
+            </div>
+        </div>
+        <div class="down">
+            <button (click)="scrollDown()">^</button>
+        </div>
+        <div id="expanded" *ngIf="expand">
+            <div class="close-button">
+                <button (click)="handleExpand()">close</button>
+            </div>
+            <div class="left">
+                <button (click)="goLeft()">left</button>
+            </div>
+            <div class="expanded-image">
+                <img src="{{ currentImage }}" alt="" (click)="handleExpand()">
+            </div>
+            <div class="right">
+                <button (click)="goRight()">right</button>
+            </div>
+            <div class="dots">
+                <i *ngFor="let image of imageArr; let i=index" [class.active]="currentIndex == i">•</i>
+            </div>
+        </div>
+    </div>
+    <div class="product">
+        <div class="main-image">
+            <img src="{{ currentImage }}" alt="" (click)="handleExpand()">
+        </div>
+    </div>
+
+</section>
